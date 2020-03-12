@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+		 body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  float: left;
+}
+/* ~~ Top Navigation Bar ~~ */
+
+#navigation-container {
+  width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+}
+
+.navigation-bar {
+  background-color: white;
+  height: 80px;
+  width: 100%;
+  txt-align: center;
+  display: block;
+}
+
+.navigation-bar a:hover {
+   color: #737373;
+}
+
+.navigation-bar ul {
+  float: right;
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.navigation-bar li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline;
+}
+
+.navigation-bar li a {
+  color: #000000;
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 80px;
+  padding: 5px 15px;
+  opacity: 0.7;
+}
+
+#menu {
+  float: left;
+}
+
+
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+</style>
+</head>
+<body>
+
+ <div class="navigation-bar">
+
+
+    <div id="navigation-container">
+
+      <img src="https://images.typeform.com/images/UiwEkmnmqrQq/image/default" style="height:100px;width:300px">
+	  
+	  <ul>
+	  <li><a href="file:///C:/Users/karen/Desktop/Karen%20html/home.html">Home</a></li>
+	  <li><a href="file:///C:/Users/karen/Desktop/Karen%20html/cv.html">CV</a></li>
+	  <li><a href="file:///C:/Users/karen/Desktop/Karen%20html/interests.html">Interests</a></li>
+	  <li><a href="file:///C:/Users/karen/Desktop/Karen%20html/aboutconsulting.html">About</a></li>
+  <li><a href="file:///C:/Users/karen/Desktop/Karen%20html/Ebus1.html">Services</a></li>
+
+
+  
+  </ul>
+</div>
+
+
+
+
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+    <img src="https://media.gettyimages.com/photos/glad-to-work-with-you-picture-id951514270?b=1&k=6&m=951514270&s=612x612&w=0&h=Us2nlSUHHDjG_R2sx0b0ZlJWMC6yaOfL9ab-Kbo6Ct0=" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="https://st2.depositphotos.com/3889193/8014/i/450/depositphotos_80147336-stock-photo-business-teamwork.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" style="width:100%">
+  <div class="text"></div>
+</div>
+
+
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+<div class="footer">
+  <p>Contact Me: karenhourican@gmail.com</p>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
+
+</body>
+</html>

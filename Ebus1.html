@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta charset="utf-8" />
+ <title>Ebusiness 1</title>
+ <link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e6e8ff;
+}
+
+
+main {
+  background-color: #b3b3ff;
+  width: 400px;
+  border: 10px solid black;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  
+
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 40px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.topnav a:hover {
+  color: #737373;
+}
+
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+</style>
+
+
+
+  
+  
+ 
+</head>
+<body>
+
+
+<div class="topnav" id="myTopnav">
+ <a href=""></a>
+ <a href=""></a>
+  <a href="file:///C:/Users/karen/Desktop/Karen%20html/Ebus1.html">Services</a>
+  <a href="file:///C:/Users/karen/Desktop/Karen%20html/aboutconsulting.html">About</a>
+  <a href="file:///C:/Users/karen/Desktop/Karen%20html/interests.html">Interests</a>
+  <a href="file:///C:/Users/karen/Desktop/Karen%20html/cv.html">CV</a>
+  <a href="file:///C:/Users/karen/Desktop/Karen%20html/home.html">Home</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<br />
+<br />
+<br />
+ <div class="form">
+            <form name="intCalc" method="post" action="eBus2.php">
+  <center>
+  <main>
+
+   <h1 align=center>Select a consulting service</h1>
+  
+   <center>
+     <table cellspacing="10">
+    <tr>
+
+    </tr>
+    <tr>
+     <td>Hyperautomation @ $200</td>
+                    <td><input type="radio" id="Hyperautomation" name="rdoGroup" value="200"  required /></td>
+                </tr>
+                <tr>
+                    <td>Multiexperience @ $500</td>
+                    <td><input type="radio" id="Multiexperience" name="rdoGroup" value="500"  /></td>
+                </tr>
+                <tr>
+                    <td>Distributed Cloud @ $1000</td>
+                    <td><input type="radio" id="DistributedCloud" name="rdoGroup" value="1000" /></td>
+    </tr>
+    <tr>
+   </table>
+   </center>
+  
+  
+   <center>
+     <table cellspacing="10">
+    <tr>
+     <td><b></b></td>
+    </tr>
+    <tr>
+     <td>Sub Total</td>
+                    <td><input type="text" id="txtSubTot" name="txtSub" readonly  required/></td>
+                </tr>
+                <tr>
+                    <td>Discount @ 5%</td>
+                    <td><input type="text" id="txtDisc" name="txtDisc" readonly  required/></td>
+                </tr>
+                <tr>
+                    <td>+ VAT @ 20%</td>
+                    <td><input type="text" id="txtVAT" name="txtVAT" readonly required /></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td><input type="text" id="txtTotal" name="txtTotal" value="" readonly required/></td>
+    </tr>
+    <tr>
+   </table>
+   </center>
+   <br />
+   <center>
+   <input type="button" name="btnCalc" id="btnCalc" onclick="calcSub()" value="Calculate Amount"/>
+   <input type="reset" name="btnClear" id="btnClear" onclick="Clear()" value="Clear Choice" />
+   </center>
+  </form>
+</div>
+</main>
+</center>
+
+	
+<script>
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+
+</script>
+<script type="text/javascript">
+              function calcSub(){
+                    var argSelection = parseFloat(document.getElementById('txtSubTot').value);
+                    var Hyperautomation = parseFloat(document.getElementById('Hyperautomation').value);
+                    var Multiexperience = parseFloat(document.getElementById('Multiexperience').value);
+                    var DistributedCloud = parseFloat(document.getElementById('DistributedCloud').value);
+                   
+                   
+                    if (document.getElementById('Hyperautomation').checked) {
+                        document.intCalc.txtSubTot.value = Hyperautomation;
+                        argSelection = Hyperautomation;
+                        calcVatTotal(argSelection);
+                       
+                    }
+                   else if (document.getElementById('Multiexperience').checked) {
+                        document.intCalc.txtSubTot.value = Multiexperience;
+                        argSelection = Multiexperience;
+                        calcVatTotal(argSelection);
+                       
+                    }
+                    else if (document.getElementById('DistributedCloud').checked) {
+                        document.intCalc.txtSubTot.value = DistributedCloud;
+                        argSelection = DistributedCloud;
+                        calcVatTotal(argSelection);
+                    }
+                }
+               
+               
+                function calcVatTotal(parmSelection) {
+                    var argsubTotal = parseFloat(parmSelection);
+                    var argdiscountAmt = parseFloat(argsubTotal * .05);
+                    var argvatAmt = parseFloat((argsubTotal-(argsubTotal*0.05)) * .20);    
+                    var argtotalPrice = parseFloat(argsubTotal - argdiscountAmt + argvatAmt);
+                   calcDisp(argsubTotal, argdiscountAmt,argvatAmt,argtotalPrice);
+                   
+                 
+                }
+
+function calcDisp(parmsubTotal, parmdiscountAmt, parmvatAmt, parmtotalPrice){
+document.intCalc.txtSubTot.value = parmsubTotal;
+document.intCalc.txtDisc.value = parmdiscountAmt;
+                    document.intCalc.txtVAT.value = parmvatAmt;
+                    document.intCalc.txtTotal.value = parmtotalPrice;
+}
+               
+               
+            </script>
+</body>
+</html>
